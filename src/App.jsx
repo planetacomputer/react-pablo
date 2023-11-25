@@ -1,19 +1,15 @@
 import './App.css'
-import { useRef } from 'react'
+import { useState } from 'react'
 const App = () => {
-  const anchoRef = useRef();
-  const altoRef = useRef();
-  const superficieRef = useRef();
-  const calcularSuperficie = () => {
-    superficieRef.current.innerHTML = anchoRef.current.value * altoRef.current.value;
+  const [contador, setContador] = useState(0);
+  const contar = () => {
+    setContador(contador + 1)
   }
   
   return (
     <div className='w3-container w3-khaki'>
-    <input type="text" ref={anchoRef} />
-    <input type="text" ref={altoRef} />
-    <button onClick={calcularSuperficie}>Calcular</button>
-    <div className='w3-badge w3-sand' ref={superficieRef}></div>
+      <button className="w3-button w3-teal" onClick={contar}>Contar</button>
+      <div className='w3-container w3-badge w3-sand'>{contador}</div>
     </div>
   )
 }
