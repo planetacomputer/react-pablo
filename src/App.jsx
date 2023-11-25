@@ -1,17 +1,18 @@
+import './App.css'
 import { useRef } from 'react'
 const App = () => {
-  const nombreRef = useRef();
-  const resultadoRef = useRef();
+  const eurosRef = useRef();
+  const dolaresRef = useRef();
 
-  const procesar = () => {
-    resultadoRef.current.innerHTML = nombreRef.current.value;
+  const convertirEuroDolar = () => {
+    dolaresRef.current.innerHTML = eurosRef.current.value*2;
   }
   return (
-    <>
-    <input type="text" ref={nombreRef} />
-    <button onClick={procesar}>Procesar</button>
-    <div ref={resultadoRef}></div>
-    </>
+    <div className='w3-container w3-khaki'>
+    <input type="text" ref={eurosRef} />
+    <button onClick={convertirEuroDolar}>Convertir</button>
+    <div className='w3-badge w3-sand' ref={dolaresRef}></div>
+    </div>
   )
 }
 export default App
