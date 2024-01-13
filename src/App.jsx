@@ -1,19 +1,23 @@
 import './App.css'
-import { useRef } from 'react'
 import { useState } from 'react'
 
 const App = () => {
-  const gradosRef = useRef();
-  const [fahrenheit, setFahrenheit] = useState(0);
-
-  const convertirGradosFahrenheit = () => {
-    setFahrenheit((gradosRef.current.value*9/5)+32);
+  const [image, setImage] = useState(0);
+  const ANIMAL_IMAGES = [
+    'http://via.placeholder.com/100x100',
+    'http://via.placeholder.com/200x200',
+    'http://via.placeholder.com/300x300'
+  ]
+  const placeImage = (number) => {
+    setImage(number);
   }
   return (
     <div className='w3-container w3-khaki'>
-    <input type="text" ref={gradosRef} />
-    <button onClick={convertirGradosFahrenheit}>Convertir</button>
-    <div className='w3-badge w3-sand'>{fahrenheit}</div>
+    <button onClick={()=>{placeImage(0)}}>Image 1</button>
+    <button onClick={()=>{placeImage(1)}}>Image 2</button>
+    <button onClick={()=>{placeImage(2)}}>Image 3</button>
+    <img src={ANIMAL_IMAGES[image]} alt='Animal' />
+    <div>{image+1}</div>
     </div>
   )
 }
