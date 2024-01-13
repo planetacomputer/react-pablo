@@ -1,15 +1,19 @@
 import './App.css'
-import { useState } from 'react'
+import { useRef } from 'react'
+import { useState } from 'react';
+
 const App = () => {
-  const [contador, setContador] = useState(0);
-  const contar = () => {
-    setContador(contador + 1)
+  const eurosRef = useRef();
+  const [dolares, setDolares] = useState(0);
+
+  const convertirEuroDolar = () => {
+    setDolares(eurosRef.current.value*2);
   }
-  
   return (
     <div className='w3-container w3-khaki'>
-      <button className="w3-button w3-teal" onClick={contar}>Contar</button>
-      <div className='w3-container w3-badge w3-sand'>{contador}</div>
+    <input type="text" ref={eurosRef} />
+    <button onClick={convertirEuroDolar}>Convertir</button>
+    <div className='w3-badge w3-sand'>{dolares}</div>
     </div>
   )
 }
