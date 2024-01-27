@@ -1,9 +1,13 @@
 import './App.css'
-import GradosAFahrComponent from './components/GradosAFahrComponent'
+import HelloComponent from './components/HelloComponent'
+import BoxComponent from './components/BoxComponent'
 
 const App = () => {
   return (
-      <GradosAFahrComponent />
+    <>
+      <HelloComponent title="Hola componente" />
+      <BoxComponent>Prop en contenido etiqueta</BoxComponent>
+    </>
   )
 }
 export default App
