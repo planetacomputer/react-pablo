@@ -1,21 +1,20 @@
-import './App.css'
-import HelloComponent from './components/HelloComponent'
-import BoxComponent from './components/BoxComponent'
-import MiComponente from './components/MiComponente'
-import { useState } from 'react'
-
-
+import PostComponent from './components/PostComponent';
+import MiComponente from './components/MiComponente';
+import './App.css';
+import { useState } from "react";
+//Se realizan los cálculos en MiComponente (hijo) y se envían a App (padre) por props
 const App = () => {
-  const [contador, setContador] = useState(0)
-  const changePadre = (param) => {
-    setContador(contador + param)
+  const [grados, setGrados] = useState(0);
+  const convertirGrados = param => {
+    setGrados((param*9/5)+32);
   }
   return (
     <>
-      <MiComponente onSomeEvent={changePadre} />
-      <HelloComponent title="Hola componente" />
-      <BoxComponent>Prop en contenido etiqueta</BoxComponent>
-      <div className='w3-container w3-aqua'>{contador}</div>
+        <ul class="w3-ul w3-border">
+          <li><PostComponent postTitle="Viaje a la luna" author="Julio Verne">Texto 1</PostComponent></li>
+          <li><PostComponent postTitle="Viaje a Marte" author="Pablo Mon">Texto 2</PostComponent></li>
+        </ul>
+        <MiComponente onSomeEvent={convertirGrados}></MiComponente>{grados}
     </>
   )
 }

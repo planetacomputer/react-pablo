@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 const MiComponente = ({onSomeEvent}) => {
-    return <button onClick={() => onSomeEvent(1)}>Mi Componente Púlsame</button>;
-};
+    return (
+    <input type="text" onChange={e => onSomeEvent(e.target.value)}></input>
+    )
+}
 export default MiComponente;
