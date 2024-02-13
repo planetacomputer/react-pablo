@@ -1,20 +1,18 @@
-import PostComponent from './components/PostComponent';
-import GradToFahrComponente from './components/GradToFahrComponente';
-import AreaRectanguloComponente from './components/AreaRectanguloComponente';
-import EuroToDollarComponente from './components/EuroToDollarComponente';
+import { useState } from 'react';
+import ComponenteMultiple from './components/ComponenteMultiple';
 import './App.css';
-//Se realizan los cálculos en MiComponente (hijo) y se envían a App (padre) por props
+
 const App = () => {
+  const [datos1, setDatos1] = useState(0);
+  const [datos2, setDatos2] = useState(0);
   return (
-    <>
-        <ul class="w3-ul w3-border">
-          <li><PostComponent postTitle="Viaje a la luna" author="Julio Verne">Texto 1</PostComponent></li>
-          <li><PostComponent postTitle="Viaje a Marte" author="Pablo Mon">Texto 2</PostComponent></li>
-        </ul>
-        <EuroToDollarComponente />
-        <GradToFahrComponente />
-        <AreaRectanguloComponente />
-    </>
+    <div>
+        <input type="number" onChange={(e) => setDatos1(e.target.value)} />
+        <input type="number" onChange={(e) => setDatos2(e.target.value)} />
+        <ComponenteMultiple opcion={1} dato1={datos1} />
+        <ComponenteMultiple opcion={2} dato1={datos1} />
+        <ComponenteMultiple opcion={3} dato1={datos1} dato2={datos2} />
+    </div>
   )
 }
 export default App
