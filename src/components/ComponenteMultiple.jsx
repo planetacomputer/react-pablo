@@ -1,9 +1,22 @@
-const ComponenteMultiple = ({ opcion, dato1, dato2 }) => {
+
+const ComponenteMultiple = ({ opcion, dias }) => {
+    function calcularCosteHotel() {
+        return dias*40;
+    }
+    function calcularCosteVehiculo() {
+        let coste = dias*40;
+        if (dias > 7){
+            coste = coste - 50;
+        }
+        else if (dias > 3){
+            coste = coste - 20;
+        }
+        return coste;
+    }
     return (
         <div>
-            {opcion === 1 ? <h1>En grados Fahrenheit es: {(dato1*9/5)+32}</h1> :
-            opcion === 2 ? <h1>En dólares es: {dato1 * 1.5}</h1> :
-            opcion === 3 ? <h1>El área del rectangulo es: {dato1*dato2}</h1> : ''}
+            {opcion === 1 ? <h1>Coste hotel: { calcularCosteHotel() }</h1> :
+            opcion === 2 ? <h1>Coste alquiler vehículo: {calcularCosteVehiculo()}</h1> : ''}
         </div>
     )
 }

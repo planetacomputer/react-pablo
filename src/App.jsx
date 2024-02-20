@@ -3,15 +3,12 @@ import ComponenteMultiple from './components/ComponenteMultiple';
 import './App.css';
 
 const App = () => {
-  const [datos1, setDatos1] = useState(0);
-  const [datos2, setDatos2] = useState(0);
+  const [dias, setDias] = useState(0);
   return (
     <div>
-        <input type="number" onChange={(e) => setDatos1(e.target.value)} />
-        <input type="number" onChange={(e) => setDatos2(e.target.value)} />
-        <ComponenteMultiple opcion={1} dato1={datos1} />
-        <ComponenteMultiple opcion={2} dato1={datos1} />
-        <ComponenteMultiple opcion={3} dato1={datos1} dato2={datos2} />
+        <input type="number" onChange={(e) => setDias(e.target.value)} />
+        <ComponenteMultiple opcion={1} dias={dias} />
+        <ComponenteMultiple opcion={2} dias={dias} />
     </div>
   )
 }
